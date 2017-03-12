@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{45EFEFA6-1968-445B-8864-69D102C2318B}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game/Player.cs">
+    <Files>
+      <File FileName="Game/Game1.cs" Line="6" Column="37" />
+      <File FileName="Game/Camera.cs" Line="8" Column="3" />
+      <File FileName="Game/IO.cs" Line="10" Column="2" />
+      <File FileName="Game/Program.cs" Line="17" Column="30" />
+      <File FileName="Game/Player.cs" Line="34" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MainGame PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

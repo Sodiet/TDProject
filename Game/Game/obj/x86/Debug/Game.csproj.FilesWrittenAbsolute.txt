@@ -1,0 +1,3 @@
+/home/klest/Проекты/Game/Game/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/klest/Проекты/Game/Game/obj/x86/Debug/Game.Icon.ico
+/home/klest/Проекты/Game/Game/bin/Debug/MonoGame.Framework.dll
