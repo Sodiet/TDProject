@@ -4,38 +4,39 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MG
 {
-	public class Player
+	class Player : IEntity
 	{
-		private Vector2 position;
+		public Vector2 Position { get; set; }
 		private Texture2D texture;
-		private Rectangle box;
+		public Circle Box { get; set; }
 		public Camera PlayerCamera { get; set; }
 		private float rotation = 0;
 		private Vector2 spriteOrigin;
 
-		public void Initialize(Texture2D PlayerTexture, Vector2 PlayerPosition, Viewport view)
+		public void Initialize(Vector2 PlayerPosition)
 		{
-			PlayerCamera = new Camera();
-			position = PlayerPosition;
-			texture = PlayerTexture;
-			box = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+			PlayerCamera = new Camera(PlayerPosition);
+			Position = PlayerPosition;
+			texture = TextureLoader.Player;
+			Box = new Circle(Position, texture.Height / 2);
+		}
+
+		public Vector2 Size()
+		{
+			return new Vector2(texture.Width, texture.Height);
 		}
 
 		public void Update(GameTime gameTime)
 		{
-			box = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
-			spriteOrigin = new Vector2(box.Width / 2, box.Height / 2);
-			PlayerCamera.Update(gameTime, (int)position.X - 400, (int)position.Y - 200);
-		}
-
-		public Vector2 Position()
-		{
-			return position;
+			Console.WriteLine(Position);
+			Box.Center = Position;
+			spriteOrigin = new Vector2(Box.Radius, Box.Radius);
+			PlayerCamera.Update(gameTime, (int)Position.X, (int)Position.Y);
 		}
 
 		public void Move(Vector2 move)
 		{
-			position += move;
+			Position += move;
 		}
 
 		public void Rotate(float rotation)
@@ -49,9 +50,8 @@ namespace MG
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
-
 		{
-			spriteBatch.Draw(texture, position, null, Color.White, rotation + (float)(Math.PI * 0.5f), spriteOrigin, 1f, SpriteEffects.None, 0);
+			spriteBatch.Draw(texture, Position, null, Color.White, rotation + (float)(Math.PI * 0.5f), spriteOrigin, 1f, SpriteEffects.None, 0);
 		}
 
 	}

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{45EFEFA6-1968-445B-8864-69D102C2318B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Game</RootNamespace>
-    <AssemblyName>Game</AssemblyName>
+    <RootNamespace>MG</RootNamespace>
+    <AssemblyName>MG</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
   </PropertyGroup>
@@ -43,6 +43,11 @@
     <Compile Include="Player.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="IO.cs" />
+    <Compile Include="TextureLoader.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="CollisionController.cs" />
+    <Compile Include="Building.cs" />
+    <Compile Include="Circle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

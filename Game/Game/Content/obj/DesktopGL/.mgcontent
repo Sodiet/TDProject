@@ -4,7 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/home/klest/Проекты/Game/Game/Content/background.jpg</File>
-    <File>/home/klest/Проекты/Game/Game/Content/player.png</File>
+    <File>/home/klest/Projects/Sodiet/TDProject/Game/Game/Content/background.jpg</File>
+    <File>/home/klest/Projects/Sodiet/TDProject/Game/Game/Content/building.png</File>
+    <File>/home/klest/Projects/Sodiet/TDProject/Game/Game/Content/player.png</File>
   </SourceFiles>
 </SourceFileCollection>

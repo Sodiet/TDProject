@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace MG
 {
-	abstract class Entity
+	public interface IEntity
 	{
-		public Rectangle Box { get; private set; }
+		
 	}
 }

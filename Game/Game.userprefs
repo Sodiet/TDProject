@@ -1,11 +1,16 @@
 ﻿<Properties StartupConfiguration="{45EFEFA6-1968-445B-8864-69D102C2318B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Game/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game/Camera.cs">
     <Files>
-      <File FileName="Game/Game1.cs" Line="6" Column="37" />
-      <File FileName="Game/Camera.cs" Line="8" Column="3" />
-      <File FileName="Game/IO.cs" Line="10" Column="2" />
+      <File FileName="Game/Game1.cs" Line="60" Column="43" />
+      <File FileName="Game/Camera.cs" Line="21" Column="72" />
+      <File FileName="Game/IO.cs" Line="71" Column="35" />
       <File FileName="Game/Program.cs" Line="17" Column="30" />
-      <File FileName="Game/Player.cs" Line="34" Column="4" />
+      <File FileName="Game/Player.cs" Line="39" Column="20" />
+      <File FileName="Game/IEntity.cs" Line="9" Column="3" />
+      <File FileName="Game/CollisionController.cs" Line="37" Column="6" />
+      <File FileName="Game/Building.cs" Line="23" Column="38" />
+      <File FileName="Game/TextureLoader.cs" Line="20" Column="3" />
+      <File FileName="Game/Circle.cs" Line="9" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

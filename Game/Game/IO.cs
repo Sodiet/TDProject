@@ -8,10 +8,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MG
 {
-	public class IO
+	class IO
 	{
 		Player player;
 		private Vector2 distance;
+		Circle phantomBox;
+		Vector2 phantomMotion;
+
 		public IO(Player newPlayer)
 		{
 			player = newPlayer;
@@ -19,37 +22,60 @@ namespace MG
 
 		public void Update(KeyboardState keyboardState, MouseState mouseState, GameTime gameTime)
 		{
-			distance = mouseState.Position.ToVector2() + player.PlayerCamera.Position - player.Position();
-			Console.WriteLine(mouseState.Position.ToVector2() + ":" + player.Position());
+			distance = mouseState.Position.ToVector2() + player.PlayerCamera.Position - player.Position;
 
 			player.Rotate((float)Math.Atan2(distance.Y, distance.X));
+			Console.WriteLine(mouseState.Position.ToVector2() + player.PlayerCamera.Position);
+
 
 			if (keyboardState.IsKeyDown(Keys.Up))
 			{
-				Vector2 motion = new Vector2(0, -5);
-				motion *= (gameTime.ElapsedGameTime.Seconds + 1);
-				player.Move(motion);
+				Vector2 motion = new Vector2(0, -1);
+				phantomMotion = player.Position + motion;
+				phantomBox = new Circle(phantomMotion, player.Box.Radius);
+				if (!CollisionComtroller.CheckCollision(phantomBox))
+				{
+					motion *= (gameTime.ElapsedGameTime.Seconds + 1);
+					player.Move(motion);
+				}
+
 			}
 
 			if (keyboardState.IsKeyDown(Keys.Down))
 			{
-				Vector2 motion = new Vector2(0, 5);
-				motion *= (gameTime.ElapsedGameTime.Seconds + 1);
-				player.Move(motion);
+				Vector2 motion = new Vector2(0, 1);
+				phantomMotion = player.Position + motion;
+
+				phantomBox = new Circle(phantomMotion, player.Box.Radius);
+				if (!CollisionComtroller.CheckCollision(phantomBox))
+				{
+					motion *= (gameTime.ElapsedGameTime.Seconds + 1);
+					player.Move(motion);
+				}
 			}
 
 			if (keyboardState.IsKeyDown(Keys.Left))
 			{
-				Vector2 motion = new Vector2(-5, 0);
-				motion *= (gameTime.ElapsedGameTime.Seconds + 1);
-				player.Move(motion);
+				Vector2 motion = new Vector2(-1, 0);
+				phantomMotion = player.Position + motion;
+				phantomBox = new Circle(phantomMotion, player.Box.Radius);
+				if (!CollisionComtroller.CheckCollision(phantomBox))
+				{
+					motion *= (gameTime.ElapsedGameTime.Seconds + 1);
+					player.Move(motion);
+				}
 			}
 
 			if (keyboardState.IsKeyDown(Keys.Right))
 			{
-				Vector2 motion = new Vector2(5, 0);
-				motion *= (gameTime.ElapsedGameTime.Seconds + 1);
-				player.Move(motion);
+				Vector2 motion = new Vector2(1, 0);
+				phantomMotion = player.Position + motion;
+				phantomBox = new Circle(phantomMotion, player.Box.Radius);
+				if (!CollisionComtroller.CheckCollision(phantomBox))
+				{
+					motion *= (gameTime.ElapsedGameTime.Seconds + 1);
+					player.Move(motion);
+				}
 			}
 
 		}

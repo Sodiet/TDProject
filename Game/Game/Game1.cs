@@ -15,13 +15,21 @@ namespace MG
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 		Player mainPlayer = new Player();
-		Texture2D background;
 		Vector2 backgroundPosition;
+		Building building;
+
+		public static Game1 Instance { get; private set; }
+		public static Viewport Viewport { get { return Instance.GraphicsDevice.Viewport; } }
+		public static Vector2 ScreenSize { get { return new Vector2(Viewport.Width, Viewport.Height); } }
+
 		IO io;
 
 		public Game1()
 		{
+			Instance = this;
 			graphics = new GraphicsDeviceManager(this);
+			graphics.PreferredBackBufferWidth = 800;
+			graphics.PreferredBackBufferHeight = 600;
 			Content.RootDirectory = "Content";
 		}
 
@@ -46,13 +54,16 @@ namespace MG
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
+			TextureLoader.LoadContent(Content);
 
-			Vector2 startPosition = new Vector2(400, 200);
-			Texture2D playerTexture = Content.Load<Texture2D>("player");
-			mainPlayer.Initialize(playerTexture, startPosition, GraphicsDevice.Viewport);
-			background = Content.Load<Texture2D>("background");
+			mainPlayer.Initialize(Game1.ScreenSize / 2);
+			building = new Building(new Vector2(500, 500));
+			CollisionComtroller.Add(mainPlayer);
+			CollisionComtroller.Add(building);
+
 			backgroundPosition = new Vector2(0, 0);
 			io = new IO(mainPlayer);
+
 			//TODO: use this.Content to load your game content here 
 		}
 
@@ -92,8 +103,9 @@ namespace MG
 				null, null, null, null,
 			    mainPlayer.GetCameraMatrix()
 			);
-			spriteBatch.Draw(background, backgroundPosition, Color.White);
+			spriteBatch.Draw(TextureLoader.Background, backgroundPosition, Color.White);
 			mainPlayer.Draw(spriteBatch);
+			building.Draw(spriteBatch);
 			spriteBatch.End();
 			base.Draw(gameTime);
 		}
